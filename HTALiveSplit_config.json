@@ -1,0 +1,23 @@
+{
+    "GLOBALPATH_EXMACHINA_LOG": "D:\\Steam\\steamapps\\common\\Hard Truck Apocalypse\\exmachina.log",
+    "GLOBALPATH_SPLITS": "HTALiveSplits\\HTALiveSplits_Original_LisaRoute.json",
+    "LIVESPLIT_HOST": "127.0.0.1",
+    "LIVESPLIT_PORT": 16834,
+    "LIVESPLIT_PAUSE_WhenLevelLoading": true,
+    "LIVESPLIT_PAUSE_WhenSaveLoading": true,
+    "LIVESPLIT_PAUSE_WhenGameSaving": true,
+    "LIVESPLIT_TCP_COMMAND_STOP": "stop",
+    "LIVESPLIT_TCP_COMMAND_START": "start",
+    "LIVESPLIT_TCP_COMMAND_RESET": "reset",
+    "LIVESPLIT_TCP_COMMAND_PAUSE": "pausegametime",
+    "LIVESPLIT_TCP_COMMAND_RESUME": "unpausegametime",
+    "LIVESPLIT_TCP_COMMAND_GETTIMERPHASE": "getcurrenttimerphase",
+    "LIVESPLIT_TCP_COMMAND_GETTIMER": "getcurrenttime",
+    "LIVESPLIT_TCP_COMMAND_SPLIT": "split",
+    "MATCH_LOADING_LEVEL_START": "Start splashing",
+    "MATCH_LOADING_LEVEL_END": "Load server end",
+    "MATCH_LOADING_SAVE_START": "Game loading:",
+    "MATCH_LOADING_SAVE_END": "Fading message:",
+    "MATCH_SAVING_START": "Begin saving game",
+    "MATCH_SAVING_END": "Fading message:"
+}
