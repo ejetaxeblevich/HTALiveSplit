@@ -13,6 +13,7 @@
 1. Проверьте комплектацию файлов. В папке `HTALiveSplits` находятся доступные категории рана:
 ```
 \HTALiveSplit\
+╠═ \HTALiveSplitLOG\
 ╠═ \HTALiveSplits\
     ╠═ HTALiveSplits_Original_LisaRoute.json
     ╠═ HTALiveSplits_Original_LisaRoute.lss
