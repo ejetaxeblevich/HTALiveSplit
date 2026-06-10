@@ -3,6 +3,12 @@
 
 ### Note: Please translate this text, if it necessary.
 
+<div align="center">
+    
+![LiveSplitScreenshot.png](LiveSplitScreenshot.png)
+
+</div>
+
 ## Возможности
 - Запускает ран по началу новой игры;
 - Ставит таймер на паузу во время загрузок;
