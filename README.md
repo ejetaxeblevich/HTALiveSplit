@@ -50,3 +50,14 @@
 6. Запустите `HTALiveSplit.exe` или python-код, отслеживайте его работу по открывшемуся терминалу или логу, сообщайте об ошибках <3;
 
 7. Ставьте рекорды!
+
+### Использовано:
+- Visual Studio Code
+- Python v3.12.4
+- Flet v0.24.1
+
+### Компиляция:
+cd C:\Users\axeble\Desktop\HTALiveSplit
+```powershell
+python -m nuitka --onefile HTALiveSplit.py --windows-company-name="E Jet a.k.a. axeble" --windows-product-name="HTALiveSplit" --windows-file-version=0.1 --windows-file-description="Autosplitter HTALiveSplit" --windows-console-mode=enable
+```
