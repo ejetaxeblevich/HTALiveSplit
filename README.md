@@ -30,7 +30,7 @@
     ╠═ HTALiveSplits_Original_WithoutLisaRoute.json
     ╠═ HTALiveSplits_Original_WithoutLisaRoute.lss
     ╚═ ...
-╠═ HTALiveSplit_readme.txt
+╠═ HTALiveSplit_Layout_by_E_Jet.lsl
 ╠═ HTALiveSplit_config.json
 ╚═ HTALiveSplit.exe
 ```
