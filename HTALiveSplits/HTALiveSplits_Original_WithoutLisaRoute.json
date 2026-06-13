@@ -1,0 +1,54 @@
+{
+    "LOCALPATH_EXMACHINA_MAINMENULEVEL": "data\\maps\\mainmenu.ssl",
+    "LOCALPATH_EXMACHINA_FIRSTLEVEL": "data\\maps\\r1m1.ssl",
+    "SPLIT_QUESTS": [
+        "Buyer_Quest1",
+        "TalkWithFather_Quest",
+        "FindBen_Quest",
+
+        "FindBen2_Quest",
+        "d_FindHouseOfBen_Quest",
+
+        "d_FindRealFatherRoom_Quest",
+
+        "d_TalkAboutVrataInMinin_Quest",
+        "d_GetHelpWorkersInMinin_Quest",
+        "d_MoveCanistraToMinin_Quest",
+
+        "FindGomerA_Quest1",
+        "r1m4_OvercomeMirras",
+        "d_FindVrata_Quest",
+
+        "r3m1_GoToOracle",
+        "r3m2_TwoMagicThing",
+        "r3m2_OracleMemory",
+
+        "r3m2_RideToFatherRoomAfterOracul",
+
+        "r1m3_FightWithThief",
+
+        "r1m3_ToLisaToAsgard",
+        "d_FindDoorInTunel_Quest",
+        "r1m3_LisaWithOberegAndDisk_Quest",
+
+        "d_GetSupportOneOfTheBands1_Quest",
+        "r2m2_FightWithAxelInArena_Quest",
+
+        "r2m2_FightLisaToMonastir",
+
+        "r2m2_GiveDisk2ToOrakul",
+
+        "r3m2_ReadyToTravel",
+
+        "r4m1_FindNative",
+        "r4m1_Kef_NeedOil",
+        "r4m1_RescueBuharsCivilian",
+
+        "r4m2_FightWithCrazy",
+
+        "r4m2_InvestigationPlate",
+
+        "r2m1_DestroyAlienShip",
+        "r1m3_DestroyOracle"
+    ]
+}
