@@ -23,7 +23,7 @@ def log(message):
         f.flush()
 
 
-log("HTALiveSplit v1.0 Startup...")
+log("HTALiveSplit v1.1 Startup...")
 
 
 def load_json(path):
@@ -54,7 +54,6 @@ LS_ISPAUSE_LOADSAVE = config["LIVESPLIT_PAUSE_WhenSaveLoading"]
 LS_ISPAUSE_DOSAVE = config["LIVESPLIT_PAUSE_WhenGameSaving"]
 
 LS_START = config["LIVESPLIT_TCP_COMMAND_START"]
-LS_STOP = config["LIVESPLIT_TCP_COMMAND_STOP"]
 LS_RESET = config["LIVESPLIT_TCP_COMMAND_RESET"]
 LS_PAUSE = config["LIVESPLIT_TCP_COMMAND_PAUSE"]
 LS_RESUME = config["LIVESPLIT_TCP_COMMAND_RESUME"]
@@ -62,12 +61,17 @@ LS_GETTIMERPHASE = config["LIVESPLIT_TCP_COMMAND_GETTIMERPHASE"]
 LS_GETTIMER = config["LIVESPLIT_TCP_COMMAND_GETTIMER"]
 LS_SPLIT = config["LIVESPLIT_TCP_COMMAND_SPLIT"]
 
+M_LEVEL = config["MATCH_LEVEL"]
+M_QUEST = config["MATCH_QUEST"]
+M_SAVED = config["MATCH_SAVED"]
+
 M_LOADING_LEVEL_START = config["MATCH_LOADING_LEVEL_START"]
 M_LOADING_LEVEL_END = config["MATCH_LOADING_LEVEL_END"]
 M_LOADING_SAVE_START = config["MATCH_LOADING_SAVE_START"]
 M_LOADING_SAVE_END = config["MATCH_LOADING_SAVE_END"]
 M_SAVING_START = config["MATCH_SAVING_START"]
 M_SAVING_END = config["MATCH_SAVING_END"]
+M_LOG_END = config["MATCH_EXMACHINA_LOG_END"]
 
 log(f'Config: LOG_FILE {LOG_FILE}')
 log(f'Config: SPLITS_FILE {SPLITS_FILE}')
@@ -76,15 +80,19 @@ log(f'Config: PORT {PORT}')
 
 log(f"Loading splits {SPLITS_FILE}...")
 
-splits= load_json(SPLITS_FILE)
+splits = load_json(SPLITS_FILE)
 
 START_MAP = splits["LOCALPATH_EXMACHINA_FIRSTLEVEL"]
 MAINMENU_MAP = splits["LOCALPATH_EXMACHINA_MAINMENULEVEL"]
-SPLITS = splits["SPLIT_QUESTS"]
+SPLIT_QUESTS = splits["SPLIT_QUESTS"]
+SPLIT_LEVELS = splits["SPLIT_LEVELS"]
+SPLIT_CUSTOM = splits["SPLIT_CUSTOM"]
 
 log(f'Splits: START_MAP {START_MAP}')
 log(f'Splits: MAINMENU_MAP {MAINMENU_MAP}')
-log(f'Splits: SPLITS {SPLITS}')
+log(f'Splits: SPLIT_QUESTS {SPLIT_QUESTS}')
+log(f'Splits: SPLIT_LEVELS {SPLIT_LEVELS}')
+log(f'Splits: SPLIT_CUSTOM {SPLIT_CUSTOM}')
 
 sock = None
 
@@ -93,11 +101,14 @@ wait_for_start = False
 loading_map = False
 loading_save = False
 saving = False
-last_quest = ""
 
-quest_complete_re = re.compile(r"Quest '(.+?)' is complete")
-loading_level_re = re.compile(r"-- Loading Level: (.+?) --")
-saving_level_re = re.compile(r"Game '(.+?)' saved.")
+last_quest = ""
+last_custom_log = ""
+levels = []
+
+quest_complete_re = re.compile(rf"{M_QUEST}")
+loading_level_re = re.compile(rf"{M_LEVEL}")
+saving_level_re = re.compile(rf"{M_SAVED}")
 
 
 def open_log():
@@ -131,6 +142,12 @@ def livesplit(command):
     except:
         return "<nothing>"
 
+def livesplit_split():
+    livesplit(LS_SPLIT)
+    if livesplit(LS_GETTIMERPHASE) == "Ended":
+        final_time = livesplit(LS_GETTIMER)
+        log(f"[RUN COMPLETE] {final_time}")
+
 def clean_cache():
     global started
     global wait_for_start
@@ -138,14 +155,16 @@ def clean_cache():
     global loading_save
     global saving
     global last_quest
+    global last_custom_log
+    global levels
     started = False
     wait_for_start = False
     loading_map = False
     loading_save = False
     saving = False
+    last_custom_log = ""
     last_quest = ""
-    
-    livesplit(LS_STOP)
+    levels = []
 
 ########################################################
 
@@ -219,7 +238,7 @@ while True:
             if started and LS_ISPAUSE_DOSAVE:
                 livesplit(LS_PAUSE)
         match = saving_level_re.search(line)
-        if M_SAVING_END in line and saving:
+        if (M_SAVING_END in line or match) and saving:
             saving = False
             log("[SAVING END]")
             if started and LS_ISPAUSE_DOSAVE:
@@ -229,28 +248,43 @@ while True:
         if match:
             level = match.group(1)
             log(f"[LEVEL] {level}")
+            
+            level_l = level.lower()
 
-            if level.lower() == START_MAP.lower() and not started:
+            if level_l == START_MAP.lower() and not started:
                 wait_for_start = True
                 livesplit(LS_RESET)
                 log("[WAITING FOR START RUN]")
                 
-            if level.lower() == MAINMENU_MAP.lower() and started:
+            if (level_l not in levels) and (level in SPLIT_LEVELS) and started:
+                levels.append(level)
+                log("[SPLIT BY LEVEL]")
+                livesplit_split()
+                
+            if level_l == MAINMENU_MAP.lower() and started:
                 clean_cache()
                 log("[STOP RUN]")
-                livesplit(LS_STOP)
+                livesplit(LS_PAUSE)
                 
         match = quest_complete_re.search(line)
         if match:
             quest = match.group(1)
             log(f"[QUEST COMPLETE] {quest}")
-            if quest!=last_quest and started and quest in SPLITS:
+            if quest!=last_quest and started and quest in SPLIT_QUESTS:
                 last_quest = quest
-                livesplit(LS_SPLIT)
+                log("[SPLIT BY QUEST]")
+                livesplit_split()
                 
-                if livesplit(LS_GETTIMERPHASE) == "Ended":
-                    final_time = livesplit(LS_GETTIMER)
-                    log(f"[RUN COMPLETE] {final_time}")
+        for custom_log in SPLIT_CUSTOM:
+            if custom_log in line and custom_log!=last_custom_log and started:
+                last_custom_log = custom_log
+                log(f"[SPLIT BY CUSTOM LOG] {custom_log}")
+                livesplit_split()
+        
+        if M_LOG_END in line and started:
+            clean_cache()
+            log("[STOP RUN]")
+            livesplit(LS_PAUSE)
 
     except Exception:
         traceback.print_exc()

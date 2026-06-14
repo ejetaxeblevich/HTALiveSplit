@@ -50,5 +50,11 @@
 
         "r2m1_DestroyAlienShip",
         "r1m3_DestroyOracle"
+    ],
+    "SPLIT_LEVELS": [
+        
+    ],
+    "SPLIT_CUSTOM": [
+        
     ]
 }

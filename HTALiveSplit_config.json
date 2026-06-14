@@ -6,7 +6,6 @@
     "LIVESPLIT_PAUSE_WhenLevelLoading": true,
     "LIVESPLIT_PAUSE_WhenSaveLoading": true,
     "LIVESPLIT_PAUSE_WhenGameSaving": true,
-    "LIVESPLIT_TCP_COMMAND_STOP": "stop",
     "LIVESPLIT_TCP_COMMAND_START": "start",
     "LIVESPLIT_TCP_COMMAND_RESET": "reset",
     "LIVESPLIT_TCP_COMMAND_PAUSE": "pausegametime",
@@ -14,10 +13,14 @@
     "LIVESPLIT_TCP_COMMAND_GETTIMERPHASE": "getcurrenttimerphase",
     "LIVESPLIT_TCP_COMMAND_GETTIMER": "getcurrenttime",
     "LIVESPLIT_TCP_COMMAND_SPLIT": "split",
-    "MATCH_LOADING_LEVEL_START": "Start splashing",
+    "MATCH_LEVEL": "-- Loading Level: (.+?) --",
+    "MATCH_QUEST": "Quest '(.+?)' is complete",
+    "MATCH_SAVED": "Game '(.+?)' saved.",
+    "MATCH_LOADING_LEVEL_START": "-- Loading Level:",
     "MATCH_LOADING_LEVEL_END": "Load server end",
     "MATCH_LOADING_SAVE_START": "Game loading:",
     "MATCH_LOADING_SAVE_END": "Fading message:",
     "MATCH_SAVING_START": "Begin saving game",
-    "MATCH_SAVING_END": "Fading message:"
+    "MATCH_SAVING_END": "Fading message:",
+    "MATCH_EXMACHINA_LOG_END": "----------------------------------------------- Log end"
 }

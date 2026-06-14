@@ -1,0 +1,19 @@
+{
+    "LOCALPATH_EXMACHINA_MAINMENULEVEL": "data\\maps\\menu_dv.ssl",
+    "LOCALPATH_EXMACHINA_FIRSTLEVEL": "data\\maps\\dv1.ssl",
+    "SPLIT_QUESTS": [
+
+    ],
+    "SPLIT_LEVELS": [
+        "data\\maps\\menu_dv.ssl"
+    ],
+    "SPLIT_CUSTOM": [
+        "Passing to map 'dv2'",
+        "Passing to map 'dv4'",
+        "Passing to map 'dv5'",
+        "Passing to map 'dv6'",
+        "Passing to map 'dv7'",
+        "Passing to map 'dv8'",
+        "Passing to map 'dv9'"
+    ]
+}
