@@ -96,5 +96,5 @@
 [comment]: <> (cd C:\Users\axeble\Desktop\HTALiveSplit)
 
 ```powershell
-python -m nuitka --onefile HTALiveSplit.py --windows-company-name="E Jet a.k.a. axeble" --windows-product-name="HTALiveSplit" --windows-file-version=1.0 --windows-file-description="Autosplitter HTALiveSplit" --windows-console-mode=force
+python -m nuitka --onefile HTALiveSplit.py --windows-company-name="E Jet a.k.a. axeble" --windows-product-name="HTALiveSplit" --windows-file-version=1.1 --windows-file-description="Autosplitter HTALiveSplit" --windows-console-mode=force
 ```
