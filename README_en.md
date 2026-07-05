@@ -38,26 +38,36 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 ╚═ HTALiveSplit.exe
 ```
 2. Make sure that the data is specified correctly in `HTALiveSplit_config.json`:
-- `GLOBALPATH_EXMACHINA_LOG`  - Full path to `exmachina.log`, with backslashes `\\`;
-- `GLOBALPATH_SPLITS`         - Full path to `.json` file of the appropriate run category, with backslashes `\\`;
-- `LIVESPLIT_HOST`            - The IP-address of the local LiveSplit TCP server for sending HTALiveSplit commands, string. *Do not change it if it is specified by default*;
-- `LIVESPLIT_PORT`            - The port of the IP-address of the local LiveSplit TCP server for sending HTALiveSplit commands, int. *Do not change it if it is specified by default*;
-- `LIVESPLIT_TCP_COMMAND_...` - A set of valid commands for the LiveSplit TCP server to send HTALiveSplit, string. *Change it if your LiveSplit does not respond to current versions of commands*;
-- `MATCH_...`                 - A set of correct events in the `.log` of the game file for HTALiveSplit control, string. *Do not change it if it works correctly*.
+
+| Key | Meaning |
+|-----------|-----------|
+| `GLOBALPATH_EXMACHINA_LOG` | Full path to `exmachina.log`, with backslashes `\\` |
+| `GLOBALPATH_SPLITS` | Full path to `.json` file of the appropriate run category, with backslashes `\\` |
+| `LIVESPLIT_HOST` | The IP-address of the local LiveSplit TCP server for sending HTALiveSplit commands, string. *Do not change it if it is specified by default* |
+| `LIVESPLIT_PORT` | The port of the IP-address of the local LiveSplit TCP server for sending HTALiveSplit commands, int. *Do not change it if it is specified by default* |
+| `LIVESPLIT_TCP_COMMAND_...` | A set of valid commands for the LiveSplit TCP server to send HTALiveSplit, string. *Change it if your LiveSplit does not respond to current versions of commands* |
+| `MATCH_...` | A set of correct events in the `.log` of the game file for HTALiveSplit control, string. *Do not change it if it works correctly* |
 
 Pause settings:
-- `LIVESPLIT_PAUSE_WhenLevelLoading` - The timer is paused when loading the map if `true`;
-- `LIVESPLIT_PAUSE_WhenSaveLoading`  - The timer is paused when loading the save if `true`;
-- `LIVESPLIT_PAUSE_WhenGameSaving`   - The timer is paused when saving the game if `true`.
+
+| Key | Meaning |
+|-----------|-----------|
+| `LIVESPLIT_PAUSE_WhenLevelLoading` | The timer is paused when loading the map if `true` |
+| `LIVESPLIT_PAUSE_WhenSaveLoading` | The timer is paused when loading the save if `true` |
+| `LIVESPLIT_PAUSE_WhenGameSaving` | The timer is paused when saving the game if `true` |
    
 3. Launch LiveSplit;
 
 4. Select and specify the desired run category:
-- `HTALiveSplits_Original_LisaRoute`        - The original game run is on a branch with assistance to the Alice at the beginning of the game;
-- `HTALiveSplits_Original_WithoutLisaRoute` - The original game run is on a branch with the refusal to help the Alice at the beginning of the game;
-- `...`                                     - There can be any of your categories and settings.
-- - **Settings file** `.json` specify in config HTALiveSplit.
-- - **Splits file** `.lss` open in LiveSplit.
+
+| Key | Meaning |
+|-----------|-----------|
+| `HTALiveSplits_Original_LisaRoute` | The original game run is on a branch with assistance to the Alice at the beginning of the game |
+| `HTALiveSplits_Original_WithoutLisaRoute` | The original game run is on a branch with the refusal to help the Alice at the beginning of the game |
+| `...` | There can be any of your categories and settings |
+
+- **Settings file** `.json` specify in config HTALiveSplit.
+- **Splits file** `.lss` open in LiveSplit.
 
 5. In LiveSplit start TCP Server: `Right-click on LiveSplit` -> `Control` -> `Start TCP Server`;
    
@@ -71,11 +81,14 @@ Pause settings:
 You can make your own splits for your mod!
 
 1. Open the sample configuration `HTALiveSplits_Original_LisaRoute.json` for HTALiveSplit:
-- `LOCALPATH_EXMACHINA_MAINMENULEVEL` - The local path inside the game folder (where the `.exe` file is located) to the level ***main menu*** `.ssl` file. The autosplitter will understand when you have entered the main menu;
-- `LOCALPATH_EXMACHINA_FIRSTLEVEL`    - The local path inside the game folder (where the `.exe` file is located) to the level ***start game*** `.ssl` file. The autosplitter will understand when you have started a new game;
-- `SPLIT_QUESTS`                      - A list of the technical names of the quests of your mod/game. When one of these quests is `is complete` *(or whatever is in its `MATCH`)*, the autosplitter will split the timer segment;
-- `SPLIT_LEVELS`                      - A list of the technical names of the levels of your mod/game *(as in `LOCALPATH_...`)*. When passing to one of these levels for the first time, the autosplitter will split the timer segment;
-- `SPLIT_CUSTOM`                      - A list of any other LOG-lines of your mod/game. When one of these matches is in the log, the autosplitter will split the timer segment;
+
+| Key | Meaning |
+|-----------|-----------|
+| `LOCALPATH_EXMACHINA_MAINMENULEVEL` | The local path inside the game folder (where the `.exe` file is located) to the level ***main menu*** `.ssl` file. The autosplitter will understand when you have entered the main menu |
+| `LOCALPATH_EXMACHINA_FIRSTLEVEL` | The local path inside the game folder (where the `.exe` file is located) to the level ***start game*** `.ssl` file. The autosplitter will understand when you have started a new game |
+| `SPLIT_QUESTS` | A list of the technical names of the quests of your mod/game. When one of these quests is `is complete` *(or whatever is in its `MATCH`)*, the autosplitter will split the timer segment |
+| `SPLIT_LEVELS` | A list of the technical names of the levels of your mod/game *(as in `LOCALPATH_...`)*. When passing to one of these levels for the first time, the autosplitter will split the timer segment |
+| `SPLIT_CUSTOM` | A list of any other LOG-lines of your mod/game. When one of these matches is in the log, the autosplitter will split the timer segment |
 
 2. Create your own `.json` file with the necessary settings for your mod. Remember how the story quests go and add the necessary ones to `SPLIT_QUESTS`;
 
