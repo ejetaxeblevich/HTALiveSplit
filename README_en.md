@@ -10,7 +10,7 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 
 </div>
 
-## FEATURES
+## Features
 - Launches a run at the start of a new game;
 - Pauses the timer during loading screens;
 - Switches splits based on completed quests of a certain category;
@@ -22,7 +22,7 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 
 ## [Video demonstration of the work](https://youtu.be/oVrpQL6um7E)
 
-## USAGE
+## Usage
 1. Check the file configuration. The `HTALiveSplits` folder contains the available run categories:
 ```
 \HTALiveSplit\
