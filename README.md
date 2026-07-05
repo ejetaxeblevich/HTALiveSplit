@@ -2,7 +2,7 @@
 Автосплиттер для спидранов оригинальной Ex Machina, других ее частей, а также любых ее модов вместе с [таймером LiveSplit](https://github.com/LiveSplit/LiveSplit).
 
 > [!NOTE]
-> ***Please translate this text, if it necessary.***
+> 🇬🇧 ***English description [here](README_en.md)***.
 
 <div align="center">
     
@@ -63,7 +63,7 @@
    
 6. В LiveSplit включите Game Time: `ПКМ по LiveSplit` -> `Compare Against` -> `Game Time`;
 
-7. Запустите `HTALiveSplit.exe` или python-код, отслеживайте его работу по открывшемуся терминалу или логу, сообщайте об ошибках <3;
+7. Запустите `HTALiveSplit.exe` или python-код, отслеживайте его работу по открывшемуся терминалу или логу, сообщайте об ошибках❤️;
 
 8. Ставьте рекорды!
 
