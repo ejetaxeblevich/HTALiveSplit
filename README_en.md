@@ -41,7 +41,7 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 
 | Key | Meaning |
 |-----------|-----------|
-| `GLOBALPATH_EXMACHINA_LOG` | Full path to `exmachina.log`, with backslashes `\\` |
+| `GLOBALPATH_EXMACHINA_EXE` | Full path to `.exe` game file, with backslashes `\\` |
 | `GLOBALPATH_SPLITS` | Full path to `.json` file of the appropriate run category, with backslashes `\\` |
 | `LIVESPLIT_HOST` | The IP-address of the local LiveSplit TCP server for sending HTALiveSplit commands, string. *Do not change it if it is specified by default* |
 | `LIVESPLIT_PORT` | The port of the IP-address of the local LiveSplit TCP server for sending HTALiveSplit commands, int. *Do not change it if it is specified by default* |
@@ -114,5 +114,5 @@ You can make your own splits for your mod!
 [comment]: <> (cd C:\Users\axeble\Desktop\HTALiveSplit)
 
 ```powershell
-python -m nuitka --onefile HTALiveSplit.py --windows-company-name="E Jet a.k.a. axeble" --windows-product-name="HTALiveSplit" --windows-file-version=1.1 --windows-file-description="Autosplitter HTALiveSplit" --windows-console-mode=force
+python -m nuitka --onefile HTALiveSplit.py --windows-company-name="E Jet a.k.a. axeble" --windows-product-name="HTALiveSplit" --windows-file-version=1.2 --windows-file-description="Autosplitter HTALiveSplit" --windows-console-mode=force
 ```
