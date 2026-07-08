@@ -104,6 +104,8 @@ You can make your own splits for your mod!
 
 8. Compete with others who are interested in your mod!
 
+## Gratitude
+- ***Destya*** for feedback and bug detection!
 
 ### Used:
 - Visual Studio Code
