@@ -3,6 +3,7 @@ import time
 import re
 import traceback
 import socket
+import psutil
 import json
 from pathlib import Path
 import sys
@@ -23,7 +24,7 @@ def log(message):
         f.flush()
 
 
-log("HTALiveSplit v1.1 Startup...")
+log("HTALiveSplit v1.2 Startup...")
 
 
 def load_json(path):
@@ -44,7 +45,13 @@ log(f"Loading config {CONFIG_FILE}...")
 
 config = load_json(CONFIG_FILE)
 
-LOG_FILE = config["GLOBALPATH_EXMACHINA_LOG"]
+GAME_LOG = ['\\exmachina.log', '\\emarcade.log']
+LOG_FILE = ""
+
+GAME_FOLDER_EXE = config["GLOBALPATH_EXMACHINA_EXE"]
+GAME_EXE = str(Path(GAME_FOLDER_EXE).name)
+GAME_FOLDER = str(Path(GAME_FOLDER_EXE).parent)
+
 SPLITS_FILE = config["GLOBALPATH_SPLITS"]
 HOST = config["LIVESPLIT_HOST"]
 PORT = config["LIVESPLIT_PORT"]
@@ -73,7 +80,7 @@ M_SAVING_START = config["MATCH_SAVING_START"]
 M_SAVING_END = config["MATCH_SAVING_END"]
 M_LOG_END = config["MATCH_EXMACHINA_LOG_END"]
 
-log(f'Config: LOG_FILE {LOG_FILE}')
+log(f'Config: GAME_EXE {GAME_FOLDER_EXE}')
 log(f'Config: SPLITS_FILE {SPLITS_FILE}')
 log(f'Config: HOST {HOST}')
 log(f'Config: PORT {PORT}')
@@ -94,7 +101,12 @@ log(f'Splits: SPLIT_QUESTS {SPLIT_QUESTS}')
 log(f'Splits: SPLIT_LEVELS {SPLIT_LEVELS}')
 log(f'Splits: SPLIT_CUSTOM {SPLIT_CUSTOM}')
 
+game = None
+last_game_state = None
+last_log_state = None
+
 sock = None
+last_sock_state = None
 
 started = False
 wait_for_start = False
@@ -111,36 +123,111 @@ loading_level_re = re.compile(rf"{M_LEVEL}")
 saving_level_re = re.compile(rf"{M_SAVED}")
 
 
-def open_log():
-    while not os.path.exists(LOG_FILE):
-        log("Waiting for log file...")
-        time.sleep(1)
+def find_game():
+    for proc in psutil.process_iter(["name"]):
+        if proc.info["name"] == GAME_EXE:
+            return proc
+    return None
 
+def get_game():
+    global game
+    global last_game_state
+    global LOG_FILE
+    while True:
+        game = find_game()
+        if game:
+            log(f"Game exe found: {game.cmdline()}")
+            for logfile in GAME_LOG:
+                LOG_FILE = GAME_FOLDER + logfile
+                if os.path.exists(LOG_FILE):
+                    log(f"Game log found: {LOG_FILE}")
+                    break
+
+            if last_game_state!=True:
+                last_game_state = True
+                log("[GAME OPENED]")
+            return game
+        else:
+            if last_game_state!=False:
+                last_game_state = False
+                log("Waiting for game process...")
+            
+            time.sleep(1)
+    
+def game_running():
+    global game
+    try:
+        return game.status()
+    except psutil.NoSuchProcess:
+        return False
+        
+
+
+def open_log():
+    global game
+    global last_log_state
+    global LOG_FILE
+    while not os.path.exists(LOG_FILE):
+        if last_log_state!=False:
+            last_log_state = False
+            log("Waiting for log file...")
+        if not game_running():
+            log("[GAME CLOSED]")
+            game = get_game()
+            
+        time.sleep(1)
+        
+    last_log_state = True
     log("Log found")
     return open(LOG_FILE, "r", encoding="utf-8", errors="ignore")
 
 def connect_livesplit():
     global sock
-    try:
-        sock = socket.create_connection((HOST, PORT))
-        log("Connected to LiveSplit")
-    except Exception as e:
-        log(f"LiveSplit not found: {e}")
-        sock = None
+    global last_sock_state
+    while True:
+        try:
+            sock = socket.create_connection((HOST, PORT))
+            sock.settimeout(0.5)
+
+            log("Connected to LiveSplit")
+            last_sock_state = True
+            return True
+        except Exception as e:
+            if last_sock_state!=False:
+                last_sock_state = False
+                log(f"LiveSplit not found: {e}")
+            
+            sock = None
+            time.sleep(1)
 
 def livesplit(command):
     global sock
+    global last_sock_state
     if sock is None:
-        return
+        connect_livesplit()
     
     #log("LiveSplit >", command)
 
-    sock.sendall((command + "\r\n").encode())
-    sock.settimeout(0.5)
-    try:
-        return sock.recv(1024).decode().strip()
-    except:
-        return "<nothing>"
+    while True:
+        try:
+            sock.sendall((command + "\r\n").encode())
+            return sock.recv(1024).decode().strip()
+        except socket.timeout:
+            return "<nothing>"
+        except (BrokenPipeError,
+                ConnectionResetError,
+                ConnectionAbortedError,
+                OSError) as e:
+            if last_sock_state!=False:
+                log(f"Lost LiveSplit connection: {e}")
+
+            try:
+                sock.close()
+            except:
+                pass
+
+            sock = None
+            connect_livesplit()
 
 def livesplit_split():
     livesplit(LS_SPLIT)
@@ -168,6 +255,8 @@ def clean_cache():
 
 ########################################################
 
+game = get_game()
+
 f = open_log()
 
 f.seek(0, os.SEEK_END)
@@ -176,9 +265,24 @@ connect_livesplit()
 livesplit(LS_GETTIMERPHASE)
 livesplit(LS_RESET)
 
+last_process_check = time.monotonic()
+
 
 while True:
     try:
+        if time.monotonic() - last_process_check >= 1:
+            last_process_check = time.monotonic()
+
+            if not game_running():
+                log("[GAME CLOSED]")
+                livesplit(LS_PAUSE)
+                
+                game = get_game()
+                f = open_log()
+                f.seek(0)
+                livesplit(LS_RESUME)
+                livesplit(LS_RESET)
+                
         line = f.readline()
         if not line:
             try:
@@ -190,6 +294,7 @@ while True:
 
             if current_size >= 0 and current_pos > current_size:
                 log("Log recreated, reopening...")
+                livesplit(LS_RESET)
                 
                 clean_cache()
 
@@ -285,7 +390,7 @@ while True:
             clean_cache()
             log("[STOP RUN]")
             livesplit(LS_PAUSE)
-
+                
     except Exception:
         traceback.print_exc()
 

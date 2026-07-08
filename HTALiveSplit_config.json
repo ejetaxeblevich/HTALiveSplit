@@ -1,5 +1,5 @@
 {
-    "GLOBALPATH_EXMACHINA_LOG": "D:\\Steam\\steamapps\\common\\Hard Truck Apocalypse\\exmachina.log",
+    "GLOBALPATH_EXMACHINA_EXE": "D:\\Steam\\steamapps\\common\\Hard Truck Apocalypse\\hta.exe",
     "GLOBALPATH_SPLITS": "HTALiveSplits\\HTALiveSplits_Original_LisaRoute.json",
     "LIVESPLIT_HOST": "127.0.0.1",
     "LIVESPLIT_PORT": 16834,
