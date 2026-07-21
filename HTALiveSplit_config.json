@@ -3,6 +3,7 @@
     "GLOBALPATH_SPLITS": "HTALiveSplits\\HTALiveSplits_Original_LisaRoute.json",
     "LIVESPLIT_HOST": "127.0.0.1",
     "LIVESPLIT_PORT": 16834,
+    "LIVESPLIT_RESET_WhenGameClosing": false,
     "LIVESPLIT_PAUSE_WhenLevelLoading": true,
     "LIVESPLIT_PAUSE_WhenSaveLoading": true,
     "LIVESPLIT_PAUSE_WhenGameSaving": true,

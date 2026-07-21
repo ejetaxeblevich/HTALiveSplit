@@ -24,7 +24,7 @@ def log(message):
         f.flush()
 
 
-log("HTALiveSplit v1.2 Startup...")
+log("HTALiveSplit v1.3 Startup...")
 
 
 def load_json(path):
@@ -56,6 +56,8 @@ SPLITS_FILE = config["GLOBALPATH_SPLITS"]
 HOST = config["LIVESPLIT_HOST"]
 PORT = config["LIVESPLIT_PORT"]
 
+LS_ISRESET_GAMECLOSED = config["LIVESPLIT_RESET_WhenGameClosing"]
+
 LS_ISPAUSE_LOADLEVEL = config["LIVESPLIT_PAUSE_WhenLevelLoading"]
 LS_ISPAUSE_LOADSAVE = config["LIVESPLIT_PAUSE_WhenSaveLoading"]
 LS_ISPAUSE_DOSAVE = config["LIVESPLIT_PAUSE_WhenGameSaving"]
@@ -84,6 +86,7 @@ log(f'Config: GAME_EXE {GAME_FOLDER_EXE}')
 log(f'Config: SPLITS_FILE {SPLITS_FILE}')
 log(f'Config: HOST {HOST}')
 log(f'Config: PORT {PORT}')
+log(f'Config: ISRESET_GAMECLOSED {LS_ISRESET_GAMECLOSED}')
 
 log(f"Loading splits {SPLITS_FILE}...")
 
@@ -103,6 +106,7 @@ log(f'Splits: SPLIT_CUSTOM {SPLIT_CUSTOM}')
 
 game = None
 last_game_state = None
+game_was_crashed = None
 last_log_state = None
 
 sock = None
@@ -165,6 +169,8 @@ def game_running():
 
 def open_log():
     global game
+    global game_was_crashed
+    global started
     global last_log_state
     global LOG_FILE
     while not os.path.exists(LOG_FILE):
@@ -173,6 +179,10 @@ def open_log():
             log("Waiting for log file...")
         if not game_running():
             log("[GAME CLOSED]")
+            
+            #print(f"2: started = {started}; game_was_crashed = {game_was_crashed}; LS_ISRESET_GAMECLOSED = {LS_ISRESET_GAMECLOSED}")
+            if started:
+                game_was_crashed = True
             game = get_game()
             
         time.sleep(1)
@@ -236,6 +246,7 @@ def livesplit_split():
         log(f"[RUN COMPLETE] {final_time}")
 
 def clean_cache():
+    log("Cache cleaned")
     global started
     global wait_for_start
     global loading_map
@@ -277,11 +288,17 @@ while True:
                 log("[GAME CLOSED]")
                 livesplit(LS_PAUSE)
                 
+                #print(f"1: started = {started}; game_was_crashed = {game_was_crashed}; LS_ISRESET_GAMECLOSED = {LS_ISRESET_GAMECLOSED}")
+                if started:
+                    game_was_crashed = True
+                    
                 game = get_game()
                 f = open_log()
                 f.seek(0)
                 livesplit(LS_RESUME)
-                livesplit(LS_RESET)
+                
+                if started and LS_ISRESET_GAMECLOSED:
+                    livesplit(LS_RESET)
                 
         line = f.readline()
         if not line:
@@ -294,9 +311,10 @@ while True:
 
             if current_size >= 0 and current_pos > current_size:
                 log("Log recreated, reopening...")
-                livesplit(LS_RESET)
+                if started and LS_ISRESET_GAMECLOSED:
+                    livesplit(LS_RESET)
                 
-                clean_cache()
+                    clean_cache()
 
                 f.close()
                 f = open_log()
@@ -367,9 +385,13 @@ while True:
                 livesplit_split()
                 
             if level_l == MAINMENU_MAP.lower() and started:
-                clean_cache()
                 log("[STOP RUN]")
                 livesplit(LS_PAUSE)
+                
+                if not game_was_crashed:
+                    clean_cache()
+                    
+                game_was_crashed = False
                 
         match = quest_complete_re.search(line)
         if match:
