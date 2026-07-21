@@ -68,21 +68,23 @@
 - **Файл настроек** `.json` укажите в config HTALiveSplit.
 - **Файл сплитов** `.lss` откройте в LiveSplit.
 
-5. В LiveSplit запустите TCP Server: `ПКМ по LiveSplit` -> `Control` -> `Start TCP Server`;
+5. В LiveSplit включите Game Time для работы паузы и отображения времени:
    
-6. В LiveSplit включите везде Game Time:
+    5.1. `ПКМ по LiveSplit` -> `Compare Against` -> `Game Time`;
    
-    6.1. `ПКМ по LiveSplit` -> `Compare Against` -> `Game Time`;
+    5.2. `ПКМ по LiveSplit` -> `Edit Layout` -> `Timer`/`Detailed Timer` -> `Timing Method` -> `Game Time`;
    
-    6.2. `ПКМ по LiveSplit` -> `Edit Layout` -> `Timer`/`Detailed Timer` -> `Timing Method` -> `Game Time`;
-   
-    6.3. `ПКМ по LiveSplit` -> `Edit Layout` -> `Splits` -> Все блоки `Columns` -> `Timing Method` -> `Game Time`;
+    5.3. `ПКМ по LiveSplit` -> `Edit Layout` -> `Splits` -> Все блоки `Columns` -> `Timing Method` -> `Game Time`;
 
-    6.4. `ПКМ по LiveSplit` -> `Save Layout As...`;
+    5.4. `ПКМ по LiveSplit` -> `Save Layout As...`;
+   
+6. В LiveSplit запустите TCP Server: `ПКМ по LiveSplit` -> `Control` -> `Start TCP Server`;
 
-8. Запустите `HTALiveSplit.exe` или python-код, отслеживайте его работу по открывшемуся терминалу или логу, сообщайте об ошибках❤️;
+7. Запустите `HTALiveSplit.exe` или python-код, отслеживайте его работу по открывшемуся терминалу или логу. Перед настоящим раном проведите небольшой тест таймера, что он правильно работает;
 
-9. Ставьте рекорды!
+8. Ставьте рекорды! Сообщайте об ошибках❤️
+
+Последующие запуски HTALiveSplit и LiveSplit ничего настраивать не нужно, необходимо только запускать у LiveSplit TCP Server.
 
 ## Как редактировать категории
 Вы можете самостоятельно сделать сплиты для своего мода!
