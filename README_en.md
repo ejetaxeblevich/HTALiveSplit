@@ -71,11 +71,19 @@ Pause settings:
 
 5. In LiveSplit start TCP Server: `Right-click on LiveSplit` -> `Control` -> `Start TCP Server`;
    
-6. In LiveSplit turn on Game Time: `Right-click on LiveSplit` -> `Compare Against` -> `Game Time`;
+6. In LiveSplit turn on Game Time:
+   
+    6.1. `Right-click on LiveSplit` -> `Compare Against` -> `Game Time`;
+   
+    6.2. `Right-click on LiveSplit` -> `Edit Layout` -> `Timer`/`Detailed Timer` -> `Timing Method` -> `Game Time`;
+   
+    6.3. `Right-click on LiveSplit` -> `Edit Layout` -> `Splits` -> All `Columns` blocks -> `Timing Method` -> `Game Time`;
 
-7. Launch `HTALiveSplit.exe` or python-code, monitor its operation by opening the terminal or log, and report errors❤️;
+    6.4. `Right-click on LiveSplit` -> `Save Layout As...`;
 
-8. Set new records!
+8. Launch `HTALiveSplit.exe` or python-code, monitor its operation by opening the terminal or log, and report errors❤️;
+
+9. Set new records!
 
 ## How to edit categories
 You can make your own splits for your mod!
