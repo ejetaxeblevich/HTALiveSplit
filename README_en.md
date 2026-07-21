@@ -76,7 +76,7 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 - **Settings file** `.json` specify in config HTALiveSplit.
 - **Splits file** `.lss` open in LiveSplit.
 
-5. In LiveSplit turn on Game Time:
+5. In LiveSplit turn on Game Time for pause work and time display:
    
     5.1. `Right-click on LiveSplit` -> `Compare Against` -> `Game Time`;
    
