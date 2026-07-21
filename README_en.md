@@ -48,14 +48,21 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 | `LIVESPLIT_TCP_COMMAND_...` | A set of valid commands for the LiveSplit TCP server to send HTALiveSplit, string. *Change it if your LiveSplit does not respond to current versions of commands* |
 | `MATCH_...` | A set of correct events in the `.log` of the game file for HTALiveSplit control, string. *Do not change it if it works correctly* |
 
-Pause settings:
+**Pause settings:**
 
 | Key | Meaning |
 |-----------|-----------|
-| `LIVESPLIT_PAUSE_WhenLevelLoading` | The timer is paused when loading the map if `true` |
-| `LIVESPLIT_PAUSE_WhenSaveLoading` | The timer is paused when loading the save if `true` |
-| `LIVESPLIT_PAUSE_WhenGameSaving` | The timer is paused when saving the game if `true` |
-   
+| `LIVESPLIT_PAUSE_WhenLevelLoading` | The timer is paused when loading the map if `true`. ***`true` by default*** |
+| `LIVESPLIT_PAUSE_WhenSaveLoading` | The timer is paused when loading the save if `true`. ***`true` by default*** |
+| `LIVESPLIT_PAUSE_WhenGameSaving` | The timer is paused when saving the game if `true`. ***`true` by default*** |
+
+
+**Reset settings:**
+
+| Key | Meaning |
+|-----------|-----------|
+| `LIVESPLIT_RESET_WhenGameClosing` | The timer is reset to zero when the game process is crashed/started if `true`. ***`false` by default*** |
+
 3. Launch LiveSplit;
 
 4. Select and specify the desired run category:
