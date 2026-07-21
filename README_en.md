@@ -69,21 +69,23 @@ Pause settings:
 - **Settings file** `.json` specify in config HTALiveSplit.
 - **Splits file** `.lss` open in LiveSplit.
 
-5. In LiveSplit start TCP Server: `Right-click on LiveSplit` -> `Control` -> `Start TCP Server`;
+5. In LiveSplit turn on Game Time:
    
-6. In LiveSplit turn on Game Time:
+    5.1. `Right-click on LiveSplit` -> `Compare Against` -> `Game Time`;
    
-    6.1. `Right-click on LiveSplit` -> `Compare Against` -> `Game Time`;
+    5.2. `Right-click on LiveSplit` -> `Edit Layout` -> `Timer`/`Detailed Timer` -> `Timing Method` -> `Game Time`;
    
-    6.2. `Right-click on LiveSplit` -> `Edit Layout` -> `Timer`/`Detailed Timer` -> `Timing Method` -> `Game Time`;
-   
-    6.3. `Right-click on LiveSplit` -> `Edit Layout` -> `Splits` -> All `Columns` blocks -> `Timing Method` -> `Game Time`;
+    5.3. `Right-click on LiveSplit` -> `Edit Layout` -> `Splits` -> All `Columns` blocks -> `Timing Method` -> `Game Time`;
 
-    6.4. `Right-click on LiveSplit` -> `Save Layout As...`;
+    5.4. `Right-click on LiveSplit` -> `Save Layout As...`;
+   
+6. In LiveSplit start TCP Server: `Right-click on LiveSplit` -> `Control` -> `Start TCP Server`;
 
-8. Launch `HTALiveSplit.exe` or python-code, monitor its operation by opening the terminal or log, and report errors❤️;
+7. Launch `HTALiveSplit.exe` or python-code, monitor its operation by opening the terminal or log. Before the real speedrun, do a small timer test that it is working correctly;
 
-9. Set new records!
+8. Set new records! And report errors❤️
+
+Subsequent launches of HTALiveSplit and LiveSplit do not need to be configured, you only need to run the LiveSplit TCP Server.
 
 ## How to edit categories
 You can make your own splits for your mod!
