@@ -70,7 +70,13 @@
 
 5. В LiveSplit запустите TCP Server: `ПКМ по LiveSplit` -> `Control` -> `Start TCP Server`;
    
-6. В LiveSplit включите Game Time: `ПКМ по LiveSplit` -> `Compare Against` -> `Game Time`;
+6. В LiveSplit включите везде Game Time:
+   
+    6.1. `ПКМ по LiveSplit` -> `Compare Against` -> `Game Time`;
+   
+    6.2. `ПКМ по LiveSplit` -> `Edit Layout` -> `Timer`/`Detailed Timer` -> `Timing Method` -> `Game Time`;
+   
+    6.3. `ПКМ по LiveSplit` -> `Edit Layout` -> `Splits` -> Все блоки `Columns` -> `Timing Method` -> `Game Time`;
 
 7. Запустите `HTALiveSplit.exe` или python-код, отслеживайте его работу по открывшемуся терминалу или логу, сообщайте об ошибках❤️;
 
