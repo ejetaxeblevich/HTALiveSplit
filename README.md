@@ -122,6 +122,7 @@
 
 ## Благодарность
 - ***Destya*** за обратную связь и выявление багов!
+- ***Carsen*** за обратную связь!
 
 ### Использовано:
 - Visual Studio Code
@@ -132,5 +133,5 @@
 [comment]: <> (cd C:\Users\axeble\Desktop\HTALiveSplit)
 
 ```powershell
-python -m nuitka --onefile HTALiveSplit.py --windows-company-name="E Jet a.k.a. axeble" --windows-product-name="HTALiveSplit" --windows-file-version=1.2 --windows-file-description="Autosplitter HTALiveSplit" --windows-console-mode=force
+python -m nuitka --onefile HTALiveSplit.py --windows-company-name="E Jet a.k.a. axeble" --windows-product-name="HTALiveSplit" --windows-file-version=1.3 --windows-file-description="Autosplitter HTALiveSplit" --windows-console-mode=force
 ```
