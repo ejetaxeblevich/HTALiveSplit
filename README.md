@@ -22,6 +22,9 @@
 
 ## [Видео с демонстрацией работы](https://youtu.be/oVrpQL6um7E)
 
+> [!TIP]
+> ***Официально используется на [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
+
 ## Использование
 1. Проверьте комплектацию файлов. В папке `HTALiveSplits` находятся доступные категории рана:
 ```
