@@ -130,6 +130,7 @@
 ### Использовано:
 - Visual Studio Code
 - Python v3.12.4
+- psutil v7.2.2
 
 ### Компиляция:
 
