@@ -131,6 +131,7 @@ You can make your own splits for your mod!
 ### Used:
 - Visual Studio Code
 - Python v3.12.4
+- psutil v7.2.2
 
 ### Compiled:
 
