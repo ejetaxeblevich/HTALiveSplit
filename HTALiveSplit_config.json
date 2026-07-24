@@ -8,6 +8,7 @@
     "LIVESPLIT_PAUSE_WhenSaveLoading": true,
     "LIVESPLIT_PAUSE_WhenGameSaving": true,
     "LIVESPLIT_TCP_COMMAND_START": "start",
+    "LIVESPLIT_TCP_COMMAND_INITGAMETIME": "setgametime 0",
     "LIVESPLIT_TCP_COMMAND_RESET": "reset",
     "LIVESPLIT_TCP_COMMAND_PAUSE": "pausegametime",
     "LIVESPLIT_TCP_COMMAND_RESUME": "unpausegametime",

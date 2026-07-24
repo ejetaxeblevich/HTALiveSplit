@@ -24,7 +24,7 @@ def log(message):
         f.flush()
 
 
-log("HTALiveSplit v1.3 Startup...")
+log("HTALiveSplit v1.4 Startup...")
 
 
 def load_json(path):
@@ -40,6 +40,8 @@ def load_json(path):
 
 BASE_DIR = Path(sys.argv[0]).resolve().parent
 CONFIG_FILE = BASE_DIR / "HTALiveSplit_config.json"
+
+########################################################
 
 log(f"Loading config {CONFIG_FILE}...")
 
@@ -63,6 +65,7 @@ LS_ISPAUSE_LOADSAVE = config["LIVESPLIT_PAUSE_WhenSaveLoading"]
 LS_ISPAUSE_DOSAVE = config["LIVESPLIT_PAUSE_WhenGameSaving"]
 
 LS_START = config["LIVESPLIT_TCP_COMMAND_START"]
+LS_INITGAMETIME = config["LIVESPLIT_TCP_COMMAND_INITGAMETIME"]
 LS_RESET = config["LIVESPLIT_TCP_COMMAND_RESET"]
 LS_PAUSE = config["LIVESPLIT_TCP_COMMAND_PAUSE"]
 LS_RESUME = config["LIVESPLIT_TCP_COMMAND_RESUME"]
@@ -82,11 +85,9 @@ M_SAVING_START = config["MATCH_SAVING_START"]
 M_SAVING_END = config["MATCH_SAVING_END"]
 M_LOG_END = config["MATCH_EXMACHINA_LOG_END"]
 
-log(f'Config: GAME_EXE {GAME_FOLDER_EXE}')
-log(f'Config: SPLITS_FILE {SPLITS_FILE}')
-log(f'Config: HOST {HOST}')
-log(f'Config: PORT {PORT}')
-log(f'Config: ISRESET_GAMECLOSED {LS_ISRESET_GAMECLOSED}')
+log(f'Config: {config}')
+
+########################################################
 
 log(f"Loading splits {SPLITS_FILE}...")
 
@@ -94,15 +95,14 @@ splits = load_json(SPLITS_FILE)
 
 START_MAP = splits["LOCALPATH_EXMACHINA_FIRSTLEVEL"]
 MAINMENU_MAP = splits["LOCALPATH_EXMACHINA_MAINMENULEVEL"]
+
 SPLIT_QUESTS = splits["SPLIT_QUESTS"]
 SPLIT_LEVELS = splits["SPLIT_LEVELS"]
 SPLIT_CUSTOM = splits["SPLIT_CUSTOM"]
 
-log(f'Splits: START_MAP {START_MAP}')
-log(f'Splits: MAINMENU_MAP {MAINMENU_MAP}')
-log(f'Splits: SPLIT_QUESTS {SPLIT_QUESTS}')
-log(f'Splits: SPLIT_LEVELS {SPLIT_LEVELS}')
-log(f'Splits: SPLIT_CUSTOM {SPLIT_CUSTOM}')
+log(f'Splits: {splits}')
+
+########################################################
 
 game = None
 last_game_state = None
@@ -118,14 +118,15 @@ loading_map = False
 loading_save = False
 saving = False
 
-last_quest = ""
-last_custom_log = ""
+logs = []
+quests = []
 levels = []
 
 quest_complete_re = re.compile(rf"{M_QUEST}")
 loading_level_re = re.compile(rf"{M_LEVEL}")
 saving_level_re = re.compile(rf"{M_SAVED}")
 
+########################################################
 
 def find_game():
     for proc in psutil.process_iter(["name"]):
@@ -165,7 +166,7 @@ def game_running():
     except psutil.NoSuchProcess:
         return False
         
-
+########################################################
 
 def open_log():
     global game
@@ -210,7 +211,7 @@ def connect_livesplit():
             sock = None
             time.sleep(1)
 
-def livesplit(command):
+def livesplit(command):   
     global sock
     global last_sock_state
     if sock is None:
@@ -241,6 +242,11 @@ def livesplit(command):
 
 def livesplit_split():
     livesplit(LS_SPLIT)
+    
+    phase = livesplit("getcurrenttimerphase")
+    time_now = livesplit("getcurrenttime")
+    log(f"After split: {phase} {time_now}")
+    
     if livesplit(LS_GETTIMERPHASE) == "Ended":
         final_time = livesplit(LS_GETTIMER)
         log(f"[RUN COMPLETE] {final_time}")
@@ -252,16 +258,16 @@ def clean_cache():
     global loading_map
     global loading_save
     global saving
-    global last_quest
-    global last_custom_log
+    global logs
+    global quests
     global levels
     started = False
     wait_for_start = False
     loading_map = False
     loading_save = False
     saving = False
-    last_custom_log = ""
-    last_quest = ""
+    logs = []
+    quests = []
     levels = []
 
 ########################################################
@@ -340,6 +346,7 @@ while True:
                 started = True
                 log("[START RUN]")
                 livesplit(LS_START)
+                livesplit(LS_INITGAMETIME)
             elif started and LS_ISPAUSE_LOADLEVEL:
                 livesplit(LS_RESUME)
             
@@ -397,14 +404,14 @@ while True:
         if match:
             quest = match.group(1)
             log(f"[QUEST COMPLETE] {quest}")
-            if quest!=last_quest and started and quest in SPLIT_QUESTS:
-                last_quest = quest
-                log("[SPLIT BY QUEST]")
+            if quest not in quests and started and quest in SPLIT_QUESTS:
+                quests.append(quest)
+                log(f"[SPLIT BY QUEST] {quest}")
                 livesplit_split()
                 
         for custom_log in SPLIT_CUSTOM:
-            if custom_log in line and custom_log!=last_custom_log and started:
-                last_custom_log = custom_log
+            if custom_log in line and custom_log not in logs and started:
+                logs.append(custom_log)
                 log(f"[SPLIT BY CUSTOM LOG] {custom_log}")
                 livesplit_split()
         
