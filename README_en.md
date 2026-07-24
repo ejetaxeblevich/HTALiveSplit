@@ -95,7 +95,7 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 
 8. Set new records! And report errors❤️
 
-Subsequent launches of HTALiveSplit and LiveSplit do not need to be configured, you only need to run the LiveSplit TCP Server.
+Subsequent launches of HTALiveSplit and LiveSplit do not need to be configured, you only need to start the TCP Server and check the Game Time from LiveSplit.
 
 ## How to edit categories
 You can make your own splits for your mod!
