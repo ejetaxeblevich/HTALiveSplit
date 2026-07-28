@@ -23,7 +23,9 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 ## [Video demonstration of the work](https://youtu.be/oVrpQL6um7E)
 
 > [!TIP]
-> ***Officially used on [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
+> ***✅Officially used on [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
+>
+> You can see the [list of speedruns](https://github.com/ejetaxeblevich/HTALiveSplit/blob/main/speedrun_list.md ), who used this autosplitter.
 
 ## Usage
 1. Check the file configuration. The `HTALiveSplits` folder contains the available run categories:
