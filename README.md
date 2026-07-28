@@ -23,7 +23,9 @@
 ## [Видео с демонстрацией работы](https://youtu.be/oVrpQL6um7E)
 
 > [!TIP]
-> ***Официально используется на [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
+> ***✅Официально используется на [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
+>
+> Вы можете посмотреть [список спидранов](https://github.com/ejetaxeblevich/HTALiveSplit/blob/main/speedrun_list.md), которые использовали этот автосплиттер.
 
 ## Использование
 1. Проверьте комплектацию файлов. В папке `HTALiveSplits` находятся доступные категории рана:
