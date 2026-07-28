@@ -129,7 +129,7 @@ You can make your own splits for your mod!
 ## Gratitude
 - ***Destya*** for feedback and bug detection!
 - ***Carsen*** for feedback!
-- ***Stakanyash** for feedback!
+- ***Stakanyash*** for feedback!
 
 ### Used:
 - Visual Studio Code
