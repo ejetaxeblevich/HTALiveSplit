@@ -1,14 +1,20 @@
 # HTALiveSplit
 An autosplitter for speedruns of the original Hard Truck Apocalypse, its other games, as well as any of its mods along with [timer LiveSplit](https://github.com/LiveSplit/LiveSplit).
 
-> [!NOTE]
-> 🇷🇺 ***Описание на русском языке [здесь](README.md)***.
+***
 
 <div align="center">
     
 ![LiveSplitScreenshot.png](LiveSplitScreenshot.png)
 
+![HTALiveSplitStatus](https://img.shields.io/badge/Status-Released-yellow) ![HTALiveSplitVersion](https://img.shields.io/badge/Latest%20version-1.4-blue) ![HTALiveSplitDownloads](https://img.shields.io/badge/Total%20downloads-23%2B-purple)
+
 </div>
+
+***
+
+> [!NOTE]
+> 🇷🇺 ***Описание на русском языке [здесь](README.md)***.
 
 ## Features
 - Launches a run at the start of a new game;
