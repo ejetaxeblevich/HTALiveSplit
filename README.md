@@ -1,14 +1,20 @@
 # HTALiveSplit
 Автосплиттер для спидранов оригинальной Ex Machina, других ее частей, а также любых ее модов вместе с [таймером LiveSplit](https://github.com/LiveSplit/LiveSplit).
 
-> [!NOTE]
-> 🇬🇧 ***English description [here](README_en.md)***.
+***
 
 <div align="center">
     
 ![LiveSplitScreenshot.png](LiveSplitScreenshot.png)
 
+![HTALiveSplitStatus](https://img.shields.io/badge/Status-Released-yellow) ![HTALiveSplitVersion](https://img.shields.io/badge/Latest%20version-1.4-blue) ![HTALiveSplitDownloads](https://img.shields.io/badge/Total%20downloads-23%2B-purple)
+
 </div>
+
+***
+
+> [!NOTE]
+> 🇬🇧 ***English description [here](README_en.md)***.
 
 ## Возможности
 - Запускает ран по началу новой игры;
