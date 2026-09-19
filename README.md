@@ -7,7 +7,7 @@
     
 ![LiveSplitScreenshot.png](LiveSplitScreenshot.png)
 
-![HTALiveSplitStatus](https://img.shields.io/badge/Status-Released-yellow) ![HTALiveSplitVersion](https://img.shields.io/badge/Latest%20version-1.4-blue) ![HTALiveSplitDownloads](https://img.shields.io/badge/Total%20downloads-23%2B-purple)
+![HTALiveSplitStatus](https://img.shields.io/badge/Status-Released-yellow) ![HTALiveSplitVersion](https://img.shields.io/badge/Latest%20version-1.4-blue) ![HTALiveSplitDownloads](https://img.shields.io/badge/Total%20downloads-25%2B-purple)
 
 </div>
 
