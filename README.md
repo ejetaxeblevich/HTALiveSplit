@@ -1,13 +1,11 @@
+<div align="center">
+    
 # HTALiveSplit
 Автосплиттер для спидранов оригинальной Ex Machina, других ее частей, а также любых ее модов вместе с [таймером LiveSplit](https://github.com/LiveSplit/LiveSplit).
 
-***
+![HTALiveSplitStatus](https://img.shields.io/badge/Статус-Вышел-yellow?style=for-the-badge) ![HTALiveSplitVersion](https://img.shields.io/badge/Последняя%20версия-1.4-blue?style=for-the-badge) ![HTALiveSplitDownloads](https://img.shields.io/github/downloads/ejetaxeblevich/HTALiveSplit/total?label=Всего%20скачиваний&color=purple&style=for-the-badge)
 
-<div align="center">
-    
 ![LiveSplitScreenshot.png](LiveSplitScreenshot.png)
-
-![HTALiveSplitStatus](https://img.shields.io/badge/Status-Released-yellow) ![HTALiveSplitVersion](https://img.shields.io/badge/Latest%20version-1.4-blue) ![HTALiveSplitDownloads](https://img.shields.io/badge/Total%20downloads-25%2B-purple)
 
 </div>
 
