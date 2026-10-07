@@ -1,18 +1,20 @@
 <div align="center">
     
 # HTALiveSplit
+
 Автосплиттер для спидранов оригинальной Ex Machina, других ее частей, а также любых ее модов вместе с [таймером LiveSplit](https://github.com/LiveSplit/LiveSplit).
 
-![HTALiveSplitStatus](https://img.shields.io/badge/Статус-Вышел-yellow?style=for-the-badge) ![HTALiveSplitVersion](https://img.shields.io/badge/Последняя%20версия-1.4-blue?style=for-the-badge) ![HTALiveSplitDownloads](https://img.shields.io/github/downloads/ejetaxeblevich/HTALiveSplit/total?label=Всего%20скачиваний&color=purple&style=for-the-badge)
+***🇬🇧 English description [here](README_en.md).***
 
-![LiveSplitScreenshot.png](LiveSplitScreenshot.png)
+<br>
+<a href="https://github.com/ejetaxeblevich/HTALiveSplit/releases"><img src="https://img.shields.io/badge/Статус-Вышел-yellow?style=for-the-badge" alt="HTALiveSplitStatus"/></a> 
+<a href="https://github.com/ejetaxeblevich/HTALiveSplit/releases/tag/260724a"><img src="https://img.shields.io/badge/Последняя%20версия-1.4-blue?style=for-the-badge" alt="HTALiveSplitVersion"/></a> 
+<a href="https://tooomm.github.io/github-release-stats"><img src="https://img.shields.io/github/downloads/ejetaxeblevich/HTALiveSplit/total?label=%D0%92%D1%81%D0%B5%D0%B3%D0%BE%20%D1%81%D0%BA%D0%B0%D1%87%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9&amp;color=purple&amp;style=for-the-badge" alt="HTALiveSplitDownloads"/></a> 
+
+<br><br>
+<img src="LiveSplitScreenshot.png" alt="LiveSplitScreenshot_png" />
 
 </div>
-
-***
-
-> [!NOTE]
-> 🇬🇧 ***English description [here](README_en.md)***.
 
 ## Возможности
 - Запускает ран по началу новой игры;
@@ -26,9 +28,8 @@
 
 ## [Видео с демонстрацией работы](https://youtu.be/oVrpQL6um7E)
 
-> [!TIP]
-> ***✅Официально используется на [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
->
+***✅Официально используется на [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
+
 > Вы можете посмотреть [список спидранов](https://github.com/ejetaxeblevich/HTALiveSplit/blob/main/speedrun_list.md), которые использовали этот автосплиттер.
 
 ## Использование
@@ -128,6 +129,10 @@
 7. Протестируйте работоспособность таймера;
 
 8. Соревнуйтесь с другими, кому интересен ваш мод!
+
+## Обсуждение и техподдержка
+
+<a href="https://forum.deuswiki.com/t/avtosplitter-dlya-spidranov-s-livesplit/3169"><img src="https://img.shields.io/badge/DeusWiki%20Forum-333333?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODYgMTg2Ij48cGF0aCBmaWxsPSIjRkZBNTAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0gNzcgNCBMIDU5IDkgTCA0NyAxNSBMIDMwIDI4IEwgMTkgNDEgTCAxMCA1NyBMIDUgNzIgTCAzIDg1IEwgNCAxMDggTCA5IDEyNiBMIDE3IDE0MSBMIDIyIDE0OCBMIDM4IDE2NCBMIDUzIDE3MyBMIDY5IDE3OSBMIDc5IDE4MSBMIDEwNiAxODEgTCAxMjUgMTc2IEwgMTM5IDE2OSBMIDE0OSAxNjIgTCAxNjUgMTQ1IEwgMTc1IDEyNyBMIDE4MCAxMTEgTCAxODEgNzkgTCAxNzggNjYgTCAxNjkgNDYgTCAxNjEgMzUgTCAxNDUgMjAgTCAxMjcgMTAgTCAxMTEgNSBMIDk4IDMgWiBNIDE0MCAxNDMgTCAxMjUgMTU1IEwgMTE0IDE2MCBMIDEwMCAxNjMgTCA4NSAxNjMgTCA3NCAxNjEgTCA1OCAxNTQgTCA0OCAxNDcgTCAzOCAxMzcgTCAzNiAxMzIgTCA5OSAxMzEgTCAxMTMgMTExIEwgMTE3IDEwOCBMIDEzNiAxMzUgWiBNIDU0IDcyIEwgOTEgNzIgTCAxMDMgOTIgTCA4OSAxMTQgTCA1MyAxMTMgTCA1NCAxMDAgTCA4NyAxMDAgTCA4NyA4NSBMIDU0IDg1IFogTSAzMiA2MSBMIDMzIDExMyBMIDI3IDExNCBMIDIzIDEwMyBMIDIzIDg0IEwgMjcgNjggTCAzMCA2MiBaIE0gMTUxIDU4IEwgMTUzIDU5IEwgMTU3IDY3IEwgMTYxIDgxIEwgMTYxIDEwNSBMIDE1NyAxMTkgTCAxNTIgMTI3IEwgMTMwIDkzIFogTSA1MiAzNyBMIDU4IDMyIEwgNzQgMjUgTCA4MyAyMyBMIDEwMSAyMyBMIDExOSAyOCBMIDEyNyAzMiBMIDEzOCA0MCBMIDEzOSA0MyBMIDEyMiA2OSBMIDExNiA3NSBMIDEwMCA1NCBMIDUzIDU0IFoiLz48L3N2Zz4%3D" width="250" height="36" alt="Deuswiki topic"/></a>
 
 ## Благодарность
 - ***Destya*** за обратную связь и выявление багов!
