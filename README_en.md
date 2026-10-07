@@ -1,18 +1,20 @@
 <div align="center">
     
 # HTALiveSplit
+
 An autosplitter for speedruns of the original Hard Truck Apocalypse, its other games, as well as any of its mods along with [timer LiveSplit](https://github.com/LiveSplit/LiveSplit).
 
-![HTALiveSplitStatus](https://img.shields.io/badge/Status-Released-yellow?style=for-the-badge) ![HTALiveSplitVersion](https://img.shields.io/badge/Latest%20version-1.4-blue?style=for-the-badge) ![HTALiveSplitDownloads](https://img.shields.io/github/downloads/ejetaxeblevich/HTALiveSplit/total?label=Total%20downloads&color=purple&style=for-the-badge)
+***🇷🇺 Описание на русском языке [здесь](README.md)***.
 
-![LiveSplitScreenshot.png](LiveSplitScreenshot.png)
+<br>
+<a href="https://github.com/ejetaxeblevich/HTALiveSplit/releases"><img src="https://img.shields.io/badge/Status-Released-yellow?style=for-the-badge" alt="HTALiveSplitStatus"/></a> 
+<a href="https://github.com/ejetaxeblevich/HTALiveSplit/releases/tag/260724a"><img src="https://img.shields.io/badge/Latest%20version-1.4-blue?style=for-the-badge" alt="HTALiveSplitVersion"/></a> 
+<a href="https://tooomm.github.io/github-release-stats"><img src="https://img.shields.io/github/downloads/ejetaxeblevich/HTALiveSplit/total?label=Total%20downloads&amp;color=purple&amp;style=for-the-badge" alt="HTALiveSplitDownloads"/></a> 
+
+<br><br>
+<img src="LiveSplitScreenshot.png" alt="LiveSplitScreenshot_png" />
 
 </div>
-
-***
-
-> [!NOTE]
-> 🇷🇺 ***Описание на русском языке [здесь](README.md)***.
 
 ## Features
 - Launches a run at the start of a new game;
@@ -26,9 +28,8 @@ An autosplitter for speedruns of the original Hard Truck Apocalypse, its other g
 
 ## [Video demonstration of the work](https://youtu.be/oVrpQL6um7E)
 
-> [!TIP]
-> ***✅Officially used on [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
->
+***✅Officially used on [speedrun.com](https://www.speedrun.com/hard_truck_apocalypse__ex_machina/resources)!***
+
 > You can see the [list of speedruns](https://github.com/ejetaxeblevich/HTALiveSplit/blob/main/speedrun_list.md ), who used this autosplitter.
 
 ## Usage
@@ -129,6 +130,10 @@ You can make your own splits for your mod!
 7. Test the timer's performance;
 
 8. Compete with others who are interested in your mod!
+
+## Discussion and support
+
+<a href="https://forum.deuswiki.com/t/avtosplitter-dlya-spidranov-s-livesplit/3169"><img src="https://img.shields.io/badge/DeusWiki%20Forum-333333?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODYgMTg2Ij48cGF0aCBmaWxsPSIjRkZBNTAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0gNzcgNCBMIDU5IDkgTCA0NyAxNSBMIDMwIDI4IEwgMTkgNDEgTCAxMCA1NyBMIDUgNzIgTCAzIDg1IEwgNCAxMDggTCA5IDEyNiBMIDE3IDE0MSBMIDIyIDE0OCBMIDM4IDE2NCBMIDUzIDE3MyBMIDY5IDE3OSBMIDc5IDE4MSBMIDEwNiAxODEgTCAxMjUgMTc2IEwgMTM5IDE2OSBMIDE0OSAxNjIgTCAxNjUgMTQ1IEwgMTc1IDEyNyBMIDE4MCAxMTEgTCAxODEgNzkgTCAxNzggNjYgTCAxNjkgNDYgTCAxNjEgMzUgTCAxNDUgMjAgTCAxMjcgMTAgTCAxMTEgNSBMIDk4IDMgWiBNIDE0MCAxNDMgTCAxMjUgMTU1IEwgMTE0IDE2MCBMIDEwMCAxNjMgTCA4NSAxNjMgTCA3NCAxNjEgTCA1OCAxNTQgTCA0OCAxNDcgTCAzOCAxMzcgTCAzNiAxMzIgTCA5OSAxMzEgTCAxMTMgMTExIEwgMTE3IDEwOCBMIDEzNiAxMzUgWiBNIDU0IDcyIEwgOTEgNzIgTCAxMDMgOTIgTCA4OSAxMTQgTCA1MyAxMTMgTCA1NCAxMDAgTCA4NyAxMDAgTCA4NyA4NSBMIDU0IDg1IFogTSAzMiA2MSBMIDMzIDExMyBMIDI3IDExNCBMIDIzIDEwMyBMIDIzIDg0IEwgMjcgNjggTCAzMCA2MiBaIE0gMTUxIDU4IEwgMTUzIDU5IEwgMTU3IDY3IEwgMTYxIDgxIEwgMTYxIDEwNSBMIDE1NyAxMTkgTCAxNTIgMTI3IEwgMTMwIDkzIFogTSA1MiAzNyBMIDU4IDMyIEwgNzQgMjUgTCA4MyAyMyBMIDEwMSAyMyBMIDExOSAyOCBMIDEyNyAzMiBMIDEzOCA0MCBMIDEzOSA0MyBMIDEyMiA2OSBMIDExNiA3NSBMIDEwMCA1NCBMIDUzIDU0IFoiLz48L3N2Zz4%3D" width="250" height="36" alt="Deuswiki topic"/></a>
 
 ## Gratitude
 - ***Destya*** for feedback and bug detection!
